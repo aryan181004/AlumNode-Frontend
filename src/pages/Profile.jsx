@@ -10,9 +10,12 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:8000/api/profile`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}/api/profile`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setProfile(response.data.data);
       } catch (error) {
         setError("Failed to load profile");

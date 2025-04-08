@@ -11,7 +11,7 @@ const Connections = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `http://localhost:8000/api/profile/connections`,
+          `${import.meta.env.VITE_BASE_URL}/api/profile/connections`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

@@ -21,10 +21,10 @@ const Dashboard = () => {
       try {
         const token = localStorage.getItem("token");
         const [postsResponse, profileResponse] = await Promise.all([
-          axios.get("http://localhost:8000/api/posts", {
+          axios.get("${import.meta.env.VITE_BASE_URL}/api/posts", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:8000/api/profile", {
+          axios.get("${import.meta.env.VITE_BASE_URL}/api/profile", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -38,7 +38,7 @@ const Dashboard = () => {
             }
             try {
               const userResponse = await axios.get(
-                `http://localhost:8000/api/profile/${post.user_id}`,
+                `${import.meta.env.VITE_BASE_URL}/api/profile/${post.user_id}`,
                 { headers: { Authorization: `Bearer ${token}` } }
               );
               return { ...post, user: userResponse.data.data.user };
@@ -73,7 +73,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:8000/api/posts",
+        "${import.meta.env.VITE_BASE_URL}/api/posts",
         { content: newPost },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -99,7 +99,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `http://localhost:8000/api/posts/${postId}/like`,
+        `${import.meta.env.VITE_BASE_URL}/api/posts/${postId}/like`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
