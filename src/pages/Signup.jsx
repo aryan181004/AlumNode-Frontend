@@ -31,7 +31,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      console.log("Sending data:", formData); // Debug log
+      // console.log("Sending data:", formData); // Debug log
       const response = await axios.post(
         "${import.meta.env.VITE_BASE_URL}/api/user/signup",
         {
@@ -39,7 +39,7 @@ const Signup = () => {
           mobile_number: Number(formData.mobile_number),
         }
       );
-      console.log("Response:", response.data); // Debug log
+      // console.log("Response:", response.data); // Debug log
 
       if (response.data.error === false) {
         localStorage.setItem("token", response.data.data.token);

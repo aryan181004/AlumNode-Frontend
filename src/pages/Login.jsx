@@ -26,12 +26,12 @@ const Login = () => {
     setLoading(true);
 
     try {
-      console.log("Sending login data:", formData); // Debug log
+      // console.log("Sending login data:", formData); // Debug log
       const response = await axios.post(
         "${import.meta.env.VITE_BASE_URL}/api/user/login",
         formData
       );
-      console.log("Login Response:", response.data); // Debug log
+      // console.log("Login Response:", response.data); // Debug log
 
       if (response.data.error === false) {
         localStorage.setItem("token", response.data.data.token);
