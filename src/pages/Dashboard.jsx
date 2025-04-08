@@ -21,10 +21,10 @@ const Dashboard = () => {
       try {
         const token = localStorage.getItem("token");
         const [postsResponse, profileResponse] = await Promise.all([
-          axios.get("${import.meta.env.VITE_BASE_URL}/api/posts", {
+          axios.get(`${import.meta.env.VITE_BASE_URL}/api/posts`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("${import.meta.env.VITE_BASE_URL}/api/profile", {
+          axios.get(`${import.meta.env.VITE_BASE_URL}/api/profile`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -73,7 +73,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "${import.meta.env.VITE_BASE_URL}/api/posts",
+        `${import.meta.env.VITE_BASE_URL}/api/posts`,
         { content: newPost },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -33,7 +33,7 @@ const Signup = () => {
     try {
       // console.log("Sending data:", formData); // Debug log
       const response = await axios.post(
-        "${import.meta.env.VITE_BASE_URL}/api/user/signup",
+        `${import.meta.env.VITE_BASE_URL}/api/user/signup`,
         {
           ...formData,
           mobile_number: Number(formData.mobile_number),
